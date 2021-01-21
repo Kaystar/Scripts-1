@@ -158,7 +158,7 @@ if (isGetCookie = typeof $request !== 'undefined') {
   await signInfo();
   await friendsign();
 if($.time('HH')>12){
-  await punchCard()
+  //await punchCard()
 };
 if ($.isNode()&& $.time('HH')>20&&$.time('HH')<22){
   await endCard();
@@ -203,7 +203,7 @@ if (rotaryres.status !== 0&&rotaryres.data.doubleNum !== 0){
   await earningsInfo();
   await showmsg();
   if ($.isNode()&&rotaryres.code !== '10010')
-    if( rotarytimes && rotarytimes%90 == 0 && cash >= 10){
+    if( rotarytimes && (100-rotarytimes)%95 == 0 && cash >= 10){
        await notify.sendNotify($.name + " " + nick, "您的余额约为"+cash+"元，已可以提现"+'\n'+`【收益总计】${signinfo.data.user.score}青豆  现金约${cash}元\n${detail}`)
     }
  }
